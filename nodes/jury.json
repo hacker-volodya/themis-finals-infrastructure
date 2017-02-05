@@ -1,0 +1,53 @@
+{
+  "environment": "production",
+  "run_list": [
+    "recipe[latest-git::default]",
+    "recipe[themis-finals::python2]",
+    "recipe[dotfiles::default]",
+    "recipe[netdata::default]",
+    "recipe[themis-finals-lib-attack-result-rb::default]",
+    "recipe[themis-finals-lib-checker-result-rb::default]",
+    "recipe[themis-finals::default]"
+  ],
+  "dotfiles": {
+    "users": [
+      "root",
+      "vagrant"
+    ]
+  },
+  "themis-finals": {
+    "fqdn": "jury.ctf.sibears.ru",
+    "debug": true,
+    "autostart": true,
+    "backend": {
+      "revision": "availability",
+      "server": {
+        "processes": 2
+      },
+      "queue": {
+        "processes": 2
+      }
+    },
+    "frontend": {
+      "revision": "availability"
+    },
+    "stream": {
+      "revision": "develop"
+    },
+    "live": {
+
+    }
+  },
+  "latest-redis": {
+    "listen": {
+      "host": "127.0.0.1",
+      "port": 6379
+    }
+  },
+  "supervisor": {
+    "inet_port": "0.0.0.0:9001"
+  },
+  "automatic": {
+    "ipaddress": "jury.ctf.sibears.ru"
+  }
+}

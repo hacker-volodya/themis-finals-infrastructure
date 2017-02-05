@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+conf=$(mktemp)
+
+vagrant ssh-config $1 > ${conf}
+
+trap "rm -f $conf" 0 2 3 15
+
+ssh -F $conf $1

@@ -1,0 +1,8 @@
+{
+  "id": "production",
+  "credentials": {
+    "postgres": "kajsdflasidua9weripo",  // root user password
+    "themis_finals_user": "OAIUP234-9podkj23494dsa23w",  // application user password
+    "sentry_user": "ASKDWPI#dska03okld[aps30;sa"  // sentry user password
+  }
+}
