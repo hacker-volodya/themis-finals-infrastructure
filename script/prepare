@@ -1,14 +1,9 @@
 #!/usr/bin/env sh
-if [ "$2" != "" ]; then
-  DETECTED_ENV="$2"
-else
-  DETECTED_ENV="development"
-fi
-case "$DETECTED_ENV" in
-  "development") DETECTED_DOMAIN="finals.themis-project.com";;
-  "production") DETECTED_DOMAIN="finals.volgactf.ru";;
-  *) echo "Unsupported environment $DETECTED_ENV"
-    exit 2
-    ;;
-esac
-CHEF_ENV="$DETECTED_ENV" bundle exec knife solo prepare "$1.$DETECTED_DOMAIN"
+
+conf=$(mktemp)
+
+vagrant ssh-config $1 > ${conf}
+
+trap "rm -f $conf" 0 2 3 15
+
+CHEF_ENV="$DETECTED_ENV" bundle exec knife solo prepare $1 -F $conf

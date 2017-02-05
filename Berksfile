@@ -46,8 +46,8 @@ cookbook 'ssh-private-keys', '~> 1.0.0'
 
 cookbook 'themis-finals',
          # path: '../themis-finals-cookbook'
-         git: 'https://github.com/aspyatkin/themis-finals-cookbook',
-         tag: 'v1.2.4'
+         git: 'https://github.com/d3fl4t3/themis-finals-cookbook',
+         tag: 'v1.2.5'
 
 cookbook 'themis-finals-service1-checker',
          # path: '../themis-finals-service1-checker-cookbook'
