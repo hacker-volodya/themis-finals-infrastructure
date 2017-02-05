@@ -6,4 +6,4 @@ vagrant ssh-config $1 > ${conf}
 
 trap "rm -f $conf" 0 2 3 15
 
-ssh -F $conf $1
+ssh -F $conf $1 $2
